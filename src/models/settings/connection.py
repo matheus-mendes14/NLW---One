@@ -9,7 +9,7 @@ class DBConnectionHandler:
         )
 
         self .engine = None
-        self.__session = None
+        self.session = None
 
     def connect_to_db(self) -> None:
         self.__engine = creat_engine(self.__connection_string)
@@ -23,4 +23,6 @@ class DBConnectionHandler:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.__session.close()
+        self.session.close()
+
+    db_connection_handler = DBConnectionHandler
